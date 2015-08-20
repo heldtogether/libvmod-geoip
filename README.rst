@@ -130,6 +130,19 @@ Example
 INSTALLATION
 ============
 
+There are several steps I had to perform before installing libvmod-geoip on Ubuntu 14.04:
+
+    curl https://repo.varnish-cache.org/GPG-key.txt | apt-key add -
+    echo "deb http://repo.varnish-cache.org/ubuntu/ precise varnish-4.0" >> /etc/apt/sources.list.d/varnish-cache.list
+    echo "deb-src http://repo.varnish-cache.org/ubuntu/ precise varnish-4.0" >> /etc/apt/sources.list.d/varnish-cache.list
+
+    apt-get update
+    apt-get dist-upgrade
+
+    apt-get install varnish
+    apt-get build-dep varnish
+    apt-get install libvarnishapi-dev
+
 The source tree is based on autotools to configure the building, and
 does also have the necessary bits in place to do functional unit tests
 using the varnishtest tool.
